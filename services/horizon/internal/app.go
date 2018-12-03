@@ -280,7 +280,7 @@ func (a *App) UpdateStellarCoreInfo() {
 	}
 
 	a.coreVersion = resp.Info.Build
-	a.protocolVersion = int32(resp.Info.ProtocolVersion)
+	a.protocolVersion = int32(resp.Info.Ledger.Version)
 }
 
 // UpdateMetrics triggers a refresh of several metrics gauges, such as open
