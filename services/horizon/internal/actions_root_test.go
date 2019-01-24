@@ -30,6 +30,7 @@ func TestRootAction(t *testing.T) {
 	ht.App.UpdateStellarCoreInfo()
 
 	w := ht.Get("/")
+
 	if ht.Assert.Equal(200, w.Code) {
 		var actual horizon.Root
 		err := json.Unmarshal(w.Body.Bytes(), &actual)
@@ -37,5 +38,7 @@ func TestRootAction(t *testing.T) {
 		ht.Assert.Equal("test-horizon", actual.HorizonVersion)
 		ht.Assert.Equal("test-core", actual.StellarCoreVersion)
 		ht.Assert.Equal(int32(3), actual.ProtocolVersion)
+		ht.Assert.Equal(int32(4), actual.CoreSupportedProtocolVersion)
+		ht.Assert.Equal(int32(3), actual.CurrentProtocolVersion)
 	}
 }

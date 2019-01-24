@@ -37,7 +37,7 @@ func (action *PathIndexAction) loadQuery() {
 
 func (action *PathIndexAction) loadSourceAssets() {
 	app := AppFromContext(action.R.Context())
-	protocolVersion := app.protocolVersion
+	protocolVersion := app.currentProtocolVersion
 
 	action.Err = action.CoreQ().AssetsForAddress(
 		&action.Query.SourceAssets,
