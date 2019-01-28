@@ -17,7 +17,7 @@ func PopulateRoot(
 	ledgerState ledger.State,
 	hVersion, cVersion string,
 	passphrase string,
-	pVersion int32,
+	currentProtocolVersion int32,
 	coreSupportedProtocolVersion int32,
 	friendBotURL *url.URL,
 ) {
@@ -27,8 +27,8 @@ func PopulateRoot(
 	dest.HorizonVersion = hVersion
 	dest.StellarCoreVersion = cVersion
 	dest.NetworkPassphrase = passphrase
-	dest.ProtocolVersion = pVersion
-	dest.CurrentProtocolVersion = pVersion
+	dest.ProtocolVersion = currentProtocolVersion
+	dest.CurrentProtocolVersion = currentProtocolVersion
 	dest.CoreSupportedProtocolVersion = coreSupportedProtocolVersion
 
 	lb := hal.LinkBuilder{Base: httpx.BaseURL(ctx)}
